@@ -1,14 +1,9 @@
 'use strict';
 
 var parentElement = document.getElementById('cookie-stand');
-function cookies() {
-
-}
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-
 //create object(s) - create ONE first! with the given data/properties // Get Date
-
 var seattle = {
   name: 'Seattle',
   min: 23,
@@ -35,10 +30,6 @@ var seattle = {
     var h2 = document.createElement('h2');
     h2.textContent = this.key;
     article.appendChild(h2);
-
-    var p = document.createElement('p');
-    p.textContent = `At minimun the ${this.name} store has ${this.min} customers and a maximum of ${this.max} customers a day.`;
-    article.appendChild(p);
 
     var ul = document.createElement('ul');
     ul.textContent = this.name;
@@ -99,11 +90,11 @@ var tokyo = {
   }
 };
 
-var seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookies: 6.3,
+var dubai = {
+  name: 'Dubai',
+  min: 11,
+  max: 38,
+  avgCookies: 3.7,
   cookiesSoldPerHourArray: [],
   dailyTotal: 0,
 
@@ -142,11 +133,11 @@ var seattle = {
   }
 };
 
-var seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookies: 6.3,
+var paris = {
+  name: 'Paris',
+  min: 20,
+  max: 38,
+  avgCookies: 2.3,
   cookiesSoldPerHourArray: [],
   dailyTotal: 0,
 
@@ -185,11 +176,11 @@ var seattle = {
   }
 };
 
-var seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookies: 6.3,
+var lima = {
+  name: 'Lima',
+  min: 2,
+  max: 16,
+  avgCookies: 4.6,
   cookiesSoldPerHourArray: [],
   dailyTotal: 0,
 
@@ -211,10 +202,6 @@ var seattle = {
     var h2 = document.createElement('h2');
     h2.textContent = this.key;
     article.appendChild(h2);
-
-    var p = document.createElement('p');
-    p.textContent = `At minimun the ${this.name} store has ${this.min} customers and a maximum of ${this.max} customers a day.`;
-    article.appendChild(p);
 
     var ul = document.createElement('ul');
     ul.textContent = this.name;
@@ -247,6 +234,9 @@ function randomNumber(min, max) {
 // seattle.getNum();
 seattle.render();
 tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
 
 
 
