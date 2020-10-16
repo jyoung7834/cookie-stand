@@ -3,44 +3,46 @@
 var parentElement = document.getElementById('cookie-stand');
 //create objece(s) - create ONE first! with the given data/properties // Get Date
 
-var object = {
-    key: value, 
-    key: value,
-    Number: 
-    anArray: ['', '', ''], 
-    key: value,
-    key: value,
-    getNum: function () {
-      this.number =`${randomNumber(0,0)} customers.`;
-      console.log(`${this.key} is ${this.key}`);
-    },
-    render: function(){
-      var article = document.createElement('article');
-      parentElement.appendChild(article);
-      
-      var h2 = document.createElement('h2');
-      h2.textContent = this.key;
-      article.appendChild(h2);
-      
-      var p = document.createElement('p');
-      p.textContent = `${this.key} is blah blah and another ${this.key}`;
-      article.appendChild(p);
-      
-      var ul = document.createElement('ul');
-      article.appendChild(ul);
-      
-      // most relevant part for lab-06
-      for (var i = 0; i , this.the anArray.length; i++){
-      var li = document.createElememnt('li');
-      li.textContent = this.anArray[i];
+var seattle = {
+  name: ('Seattle'),
+  min: 23,
+  max: 65,
+  avgCookies: 6.3,
+  numberCustomers: 44,
+  hourCookies: ['6am: 16 cookies', '7am: 20 cookies', '8am: 35 cookies', '9am: 48 cookies', '10am: 56 cookies', '11am: 77 cookies', '12pm: 93 cookies', '1pm: 144 cookies', '2pm: 119 cookies', '3pm: 84 cookies', '4pm: 61 cookies', '5pm: 23 cookies', '6pm: 42 cookies', '7pm: 57 cookies', 'Total: 875 cookies'],
+
+
+  getNum: function () {
+    this.numberCustomers = `${randomNumber(23, 65)}`;
+    console.log(`${this.name} has ${this.numberCustomers} customers on average a day`);
+  },
+  render: function () {
+    var article = document.createElement('article');
+    parentElement.appendChild(article);
+
+    var h2 = document.createElement('h2');
+    h2.textContent = this.key;
+    article.appendChild(h2);
+
+    var p = document.createElement('p');
+    p.textContent = `At minimun ${this.name} has ${this.min} customers and a maximum of ${this.max} customers a day.`;
+    article.appendChild(p);
+
+    var ul = document.createElement('ul');
+    article.appendChild(ul);
+
+    // most relevant part for lab-06
+    for (var i = 0; i < this.hourCookies.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = this.hourCookies[i];
       ul.appendChild(li);
-      }
-      
-      var img = document.createElement('img');
-      img.setAttribute('src', 'images.jpeg');
-      img.setAttribute('alt', `what the image is about ${this.key}`);
-      article.appendChild(img);  
     }
+
+    var img = document.createElement('img');
+    img.setAttribute('src', 'images/salmon.png');
+    img.setAttribute('alt', `what the image is about ${this.key}`);
+    article.appendChild(img);
+  }
 };
 
 
@@ -55,25 +57,19 @@ function randomNumber(min, max) {
 
 
 //make sure to call all object
-object.getNum();
-object.render();
+seattle.getNum();
+seattle.render();
+
+
 
 
 
 // function get RandomIntInclusive(min, max) {
-//   min = Math.ceil (min);
-//   max = Math.floor (max);
+//   max = Math.ceil (max);
+//   min = Math.floor (min);
 //   return Math.floor(Math.random() * (max - min + 1);); //The maximum is inclusive and the minimum is inclusive.
 // }
 
-    // 
-// writ object
-
-// if number is unknown get a randome number generator
-
-
-
-// if age is unknow I want to get a random age between.
 
 // 1. render to the dom.
 
