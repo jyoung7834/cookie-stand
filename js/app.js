@@ -1,9 +1,8 @@
 'use strict';
 
-var parentElement = document.getElementById('cookie-stand');
+// var parentElement = document.getElementById('cookie-stand');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-cookiesSoldPerHourArray: [];
-var salmonCookiesTable = document.getElementById(salmonCookiesTable);
+var salmonCookiesTable = document.getElementById('salmonCookiesTable');
 console.log(salmonCookiesTable);
 
 //create object(s) - create ONE first! with the given data/properties // Get Date
@@ -56,29 +55,30 @@ function Store(name, min, max, avgCookies, cookiesSoldPerhour, cookiesPerHour, d
   this.min = min;
   this.max = max;
   this.avgCookies = avgCookies;
+  this.cookiesSoldPerHourArray = this.cookiesSoldPerHourArray
   this.dailyTotal = dailyTotal;
-  this.randomNumber = function() {
-    return Math.floor(Math.random() * (this.max - this.min + 1)) * this.min);
-  }; 
-  this.CookiesSoldPerHour = function () {
+  }
+  Store.prototype.CalcCookiesSoldPerHour = function () {
     for (var i = 0; i < hours.length; i++) {
+      var numberCustomers = randomNumber(this.min, this.max);
       var cookiesPerHour = Math.ceil(numberCustomers * this.avgCookies); 
       this.cookiesSoldPerHourArray.push(cookiesPerHour);
       this.dailyTotal += cookiesPerHour;
-    }
-  };   
- 
-
-    this.render = function () {
+    };
+     
+  Store.prototype.render = function () {
       // create row
-      var tr = document.createElement('tr');
+    var tr = document.createElement('tr');
       // give row content
-      // create td
-      var td = document.createElement('td');
-      // append to row
-      tr.appendChild(td);
+      // create td FOR NAME
+    var td = document.createElement('td');
       // give td content
-      td.textContent.name;
+    td.textContent = this.name;
+      // append to row
+    tr.appendChild(td);
+      // create tds for hours ARRAY
+    td.textContent.name;
+      for(var i = 0; i < this.cookiesPerHour[i];)
 
       // append to the DOm
       salmonCookiesTable.appendChild(tr);
@@ -86,7 +86,7 @@ function Store(name, min, max, avgCookies, cookiesSoldPerhour, cookiesPerHour, d
 
     // var SeattleConstruct = new Kitten ('Seattle', 23, 65, 6.3, )
 
-
+  };
   }
 
   Store.prototype.cookiesSoldPerHour = function () {
@@ -288,7 +288,7 @@ function Store(name, min, max, avgCookies, cookiesSoldPerhour, cookiesPerHour, d
     paris.render();
     lima.render();
     SeattleConstruct.cookiesSoldPerHour();
-    SeattleConstruct.renter();
+    SeattleConstruct.render();
 
 
 
