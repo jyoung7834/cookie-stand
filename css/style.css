@@ -12,3 +12,9 @@ h1 {
 
 p {text-align: center;
 }
+
+table, td {
+  border: 1px black solid;
+  padding: 5px;
+  border-spacing: 3px;
+}
