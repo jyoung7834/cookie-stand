@@ -1,34 +1,32 @@
 * {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-color: peachpuff;
-}
+  }
 
-body {
-  background-image: url("images/salmon.png");
+  body {
+  background-image: ;
+  background-repeat: repeat-x;}
 
-}
-
-h1 {
-  background-color: white;
+  h1 {
+  background-color: beige;
   border: black;
   padding: 12px;
   text-align: center;
-}
+  }
 
-p {
+  p {
   text-align: center;
-}
+  }
 
-table {
+  table {
   border: 1px black solid;
   padding: 5px;
   border-spacing: 3px;
-}
+  border-radius: 2px;
+  }
 
-td {
+  td {
   border: 1px black solid;
   padding: 5px;
   border-spacing: 3px black solid;
-
-  
-}
+  }
