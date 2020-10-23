@@ -3,6 +3,11 @@
   background-color: peachpuff;
 }
 
+body {
+  background-image: url("images/salmon.png");
+
+}
+
 h1 {
   background-color: white;
   border: black;
@@ -10,11 +15,20 @@ h1 {
   text-align: center;
 }
 
-p {text-align: center;
+p {
+  text-align: center;
 }
 
-table, td {
+table {
   border: 1px black solid;
   padding: 5px;
   border-spacing: 3px;
+}
+
+td {
+  border: 1px black solid;
+  padding: 5px;
+  border-spacing: 3px black solid;
+
+  
 }
