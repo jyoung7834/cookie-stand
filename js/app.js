@@ -4,6 +4,11 @@ function randomNumber(min, max) {
 }
 // var parentElement = document.getElementById('cookie-stand');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var hourTotalArray = [];
+var grandTotal = 0;
+var allStores = [];
+var salmonCookiesTable = document.getElementById('salmonCookiesTable');
+
 
 //create object(s) - create ONE first! with the given data/properties // Get Date
 // var seattle = {
@@ -57,6 +62,7 @@ function Store(name, min, max, avgCookies) {
   this.avgCookies = avgCookies;
   this.cookiesSoldPerHourArray = [];
   this.dailyTotal = 0;
+  allStores.push(this);
 }
 Store.prototype.calcCookiesSoldPerHour = function () {
   for (var i = 0; i < hours.length; i++) {
@@ -80,7 +86,7 @@ Store.prototype.render = function () {
   tr.appendChild(td);
   // create tds for hours ARRAY
   // for(var i = 0; i < this.cookiesPerHour[i]; i++){
-  for (var i = 0; i < hours.length; i++){
+  for (var i = 0; i < hours.length; i++) {
     var td = document.createElement('td');
     td.textContent = this.cookiesSoldPerHourArray[i];
     tr.appendChild(td);
@@ -92,274 +98,92 @@ Store.prototype.render = function () {
   salmonCookiesTable.appendChild(tr);
 };
 
-// Store.prototype.cookiesSoldPerHour = function () {
-var salmonCookiesTable = document.getElementById('salmonCookiesTable');
-var tr = document.createElement('tr');
-// give row content
-// create td FOR NAME
-var td = document.createElement('td');
-// give td content
-td.textContent = '';
-// append to row
-tr.appendChild(td);
-for (var i = 0; i < hours.length; i++){
+function renderHeader() {
+  var tr = document.createElement('tr');
+  // give row content
+  // create td FOR NAME
   var td = document.createElement('td');
-  td.textContent = hours[i];
+  // give td content
+  td.textContent = '';
+  // append to row
   tr.appendChild(td);
-}
-var td = document.createElement('td');
-td.textContent = 'Daily Location Total';
-tr.appendChild(td);
+  for (var i = 0; i < hours.length; i++) {
+    td = document.createElement('td');
+    td.textContent = hours[i];
+    tr.appendChild(td);
+  }
+  td = document.createElement('td');
+  td.textContent = 'Daily Location Total';
+  tr.appendChild(td);
 
-salmonCookiesTable.appendChild(tr);
+  salmonCookiesTable.appendChild(tr);
+}
+
+function renderFooter() {
+  var tr = document.createElement('tr');
+  // give row content
+  // create td FOR NAME
+  var td = document.createElement('td');
+  // give td content
+  td.textContent = 'Totals';
+  // append to row
+  tr.appendChild(td);
+  for (var i = 0; i < hours.length; i++) {
+    td = document.createElement('td');
+    td.textContent = hourTotalArray[i];
+    tr.appendChild(td);
+  }
+  td = document.createElement('td');
+  td.textContent = grandTotal;
+  tr.appendChild(td);
+
+  salmonCookiesTable.appendChild(tr);
+}
 
 
 
 
 var seattle = new Store('Seattle', 23, 65, 6.3);
-var tokyo = new Store ('Tokyo', 3, 24, 1.2);
-var Dubai = new Store ('Dubai', 11, 38, 3.7);
-var Paris = new Store ('Paris', 20, 38, 2.3);
-var Lima = new Store ('Lima', 2, 16, 4.6);
+var tokyo = new Store('Tokyo', 3, 24, 1.2);
+var Dubai = new Store('Dubai', 11, 38, 3.7);
+var Paris = new Store('Paris', 20, 38, 2.3);
+var Lima = new Store('Lima', 2, 16, 4.6);
+
+renderHeader();
+
 seattle.render();
 tokyo.render();
 Dubai.render();
 Paris.render();
 Lima.render();
-
-
-// var tokyo = {
-//   name: 'Tokyo',
-//   min: 3,
-//   max: 24,
-//   avgCookies: 1.2,
-//   cookiesSoldPerHourArray: [],
-//   dailyTotal: 0,
-
-//   calcCookiesSoldPerHour: function () {
-//     for (var i = 0; i < hours.length; i++) {
-//       var numberCustomers = randomNumber(this.min, this.max);
-//       var cookiesPerHour = Math.ceil(numberCustomers * this.avgCookies);
-//       this.dailyTotal += cookiesPerHour;
-//       this.cookiesSoldPerHourArray.push(cookiesPerHour);
-//     }
-//   },
-
-//   render: function () {
-//     this.calcCookiesSoldPerHour();
-
-//     var article = document.createElement('article');
-//     parentElement.appendChild(article);
-
-//     var h2 = document.createElement('h2');
-//     h2.textContent = this.key;
-//     article.appendChild(h2);
-
-//     var ul = document.createElement('ul');
-//     ul.textContent = this.name;
-//     article.appendChild(ul);
-
-//     // most relevant part for lab-06
-//     for (var i = 0; i < hours.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
-//       ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.textContent = `Total: ${this.dailyTotal} cookies`;
-//     ul.appendChild(li);
-//   }
-// };
-
-// var dubai = {
-//   name: 'Dubai',
-//   min: 11,
-//   max: 38,
-//   avgCookies: 3.7,
-//   cookiesSoldPerHourArray: [],
-//   dailyTotal: 0,
-
-//   calcCookiesSoldPerHour: function () {
-//     for (var i = 0; i < hours.length; i++){
-//       var numberCustomers = randomNumber(this.min, this.max);
-//       var cookiesPerHour = Math.ceil(numberCustomers * this.avgCookies);
-//       this.dailyTotal += cookiesPerHour;
-//       this.cookiesSoldPerHourArray.push(cookiesPerHour);
-//     }
-//   },
-
-//   render: function () {
-//     this.calcCookiesSoldPerHour();
-
-//     var article = document.createElement('article');
-//     parentElement.appendChild(article);
-
-//     var h2 = document.createElement('h2');
-//     h2.textContent = this.key;
-//     article.appendChild(h2);
-
-//     var ul = document.createElement('ul');
-//     ul.textContent = this.name;
-//     article.appendChild(ul);
-
-//     // most relevant part for lab-06
-//     for (var i = 0; i < hours.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
-//       ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.textContent = `Total: ${this.dailyTotal} cookies`;
-//     ul.appendChild(li);
-//   }
-// };
-
-// var paris = {
-//   name: 'Paris',
-//   min: 20,
-//   max: 38,
-//   avgCookies: 2.3,
-//   cookiesSoldPerHourArray: [],
-//   dailyTotal: 0,
-
-//   calcCookiesSoldPerHour: function () {
-//     for (var i = 0; i < hours.length; i++){
-//       var numberCustomers = randomNumber(this.min, this.max);
-//       var cookiesPerHour = Math.ceil(numberCustomers * this.avgCookies);
-//       this.dailyTotal += cookiesPerHour;
-//       this.cookiesSoldPerHourArray.push(cookiesPerHour);
-//     }
-//   },
-
-//   render: function () {
-//     this.calcCookiesSoldPerHour();
-
-//     var article = document.createElement('article');
-//     parentElement.appendChild(article);
-
-//     var h2 = document.createElement('h2');
-//     h2.textContent = this.key;
-//     article.appendChild(h2);
-
-//     var ul = document.createElement('ul');
-//     ul.textContent = this.name;
-//     article.appendChild(ul);
-
-//     // most relevant part for lab-06
-//     for (var i = 0; i < hours.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
-//       ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.textContent = `Total: ${this.dailyTotal} cookies`;
-//     ul.appendChild(li);
-//   }
-// };
-
-// var lima = {
-//   name: 'Lima',
-//   min: 2,
-//   max: 16,
-//   avgCookies: 4.6,
-//   cookiesSoldPerHourArray: [],
-//   dailyTotal: 0,
-
-//   calcCookiesSoldPerHour: function () {
-//     for (var i = 0; i < hours.length; i++){
-//       var numberCustomers = randomNumber(this.min, this.max);
-//       var cookiesPerHour = Math.ceil(numberCustomers * this.avgCookies);
-//       this.dailyTotal += cookiesPerHour;
-//       this.cookiesSoldPerHourArray.push(cookiesPerHour);
-//     }
-//   },
-
-//   render: function () {
-//     this.calcCookiesSoldPerHour();
-
-//     var article = document.createElement('article');
-//     parentElement.appendChild(article);
-
-//     var h2 = document.createElement('h2');
-//     h2.textContent = this.key;
-//     article.appendChild(h2);
-
-//     var ul = document.createElement('ul');
-//     ul.textContent = this.name;
-//     article.appendChild(ul);
-
-//     // most relevant part for lab-06
-//     for (var i = 0; i < hours.length; i++) {
-//       var li = document.createElement('li');
-//       li.textContent = `${hours[i]}: ${this.cookiesSoldPerHourArray[i]} cookies`;
-//       ul.appendChild(li);
-//     }
-//     li = document.createElement('li');
-//     li.textContent = `Total: ${this.dailyTotal} cookies`;
-//     ul.appendChild(li);
-//   }
-// };
+calcTotals();
+renderFooter();
 
 
 
-// helper function to get random number code used from MDN docs:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Gloval_Objects/Math/random
+
+function calcTotals() {
+  for (var i = 0; i < hours.length; i++) {
+    var hourlyTotal = 0;
+    for (var j = 0; j < allStores.length; j++) {
+      hourlyTotal += allStores[j].cookiesSoldPerHourArray[i];
+    }
+    hourTotalArray.push(hourlyTotal);
+    grandTotal += hourlyTotal;
+  }
+}
 
 
 
 
 
 
-//make sure to call all object
-// seattle.getNum();
-
-// var salmonCookiesTable = document.getElementById('salmonCookiesTable');
 
 
 
 
-// function get RandomIntInclusive(min, max) {
-//   max = Math.ceil (max);
-//   min = Math.floor (min);
-//   return Math.floor(Math.random() * (max - min + 1);); //The maximum is inclusive and the minimum is inclusive.
-// }
 
 
-// 1. render to the dom.
-
-// console.log(parentElement);
-
-// when creating element - there is a pattern:
-// create element 
-//give it content
-//append to the DOM
-// var article = document.createElement('article');
-// parentElement.appendChild(article);
-
-// var h2 = document.createElement('h2');
-// h2.textContent = object.key;
-// article.appendChild(h2);
-
-// var p = document.createElement('p');
-// p.textContent = `${object.key} is blah blah and another ${object.key}`;
-// article.appendChild(p);
-
-// var ul = document.createElement('ul');
-// article.appendChild(ul);
-
-// // most relevant part for lab-06
-// for (var i = 0; i , object.the anArray.length; i++){
-// var li = document.createElememnt('li');
-// li.textContent = object.anArray[i];
-// ul.appendChild(li);
-// }
-
-// var img = document.createElement('img');
-// img.setAttribute('src', 'images.jpeg');
-// img.setAttribute('alt', `what the image is about ${object.key}`);
-// article.appendChild(img);
-
-// 2. I want my render to be a METHOD of my object
 
 
-// need to render:  article with h2, p ul, with ls, img -->
 
