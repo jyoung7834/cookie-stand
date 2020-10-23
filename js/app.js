@@ -172,18 +172,3 @@ function calcTotals() {
     grandTotal += hourlyTotal;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
