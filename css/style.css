@@ -1,6 +1,6 @@
 * {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* background-color: peachpuff; */
+  background-color: peachpuff;
   }
 
 
@@ -15,6 +15,8 @@ h1 {
 body {
     background-image: url("images/skin2.PNG");}
 
+
+
 p {
   text-align: center;
   }
@@ -26,12 +28,14 @@ p {
 
   }
 
-#salmonCookiesTable {
+
+  #salmonCookiesTable {
   margin-left: auto;
   margin-right: auto;
   border-radius: 20px;
   background-color: palevioletred;
   text-decoration: purple;
+
 
 
 }
