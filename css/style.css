@@ -5,24 +5,59 @@
 
   body {
     width:  960px;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  #topsalmonpic {
-    
+  head title {
+    font-size: xx-large;
   }
 
-  main  {
+  header h1{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  nav {
+    padding-top: 30px;
+    text-decoration: none;
+
+  }
+  
+
+  main {
     margin: auto;
+    text-align: center;
     width: 960px;
   }
 
-  h1  {
+  main h1  {
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     font-size: xx-large;
     font-style: italic;
     font-weight: bold;
   }
+
+  main h2 {
+    padding-top:  30px;
+    text-align: left;
+    font-size: xx-large;
+  }
+
+  main section table {
+    width: 960px
+  }
+
+#container {
+    margin-right: auto;
+    margin-left:  auto;
+}
 
   ul {
     display: inline-block;
@@ -48,25 +83,22 @@ h1 {
   border: black;
   padding: 12px;
   text-align: center;
-
-  
+  margin-left: auto;
+  margin-right: auto;
+ 
   }
-
-body {
-    background-image: url("images/skin2.PNG");}
-
 
 
 p {
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 30px;
   }
 
+p img :first-child {
+  float: left;
+}
 
-
- main {
-    text-align: center;
-
-  }
 
   th {
     appearance: bold;
@@ -78,12 +110,7 @@ p {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-
-  }
-
-  section {
-    background-color: slateblue;
-  }
+     }
 
   
 
@@ -92,32 +119,38 @@ p {
   margin-right: auto;
   border-radius: 20px;
   background-color: #fa8072;
-  width: 80%;
   padding-top: 30px;
+  width: 960px;
+ 
+}
+
+h3 {
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 
 table {
-  border: 1px black solid;
   padding: 5px;
   border-spacing: 3px;
-  border-radius: 2px;
+  border-radius: 20px;
   text-align: center;
+  width: 960px;
   }
-
-tr.even {
-  background-color: #efefef;
-}
 
 
  td {
   border: 1px black solid;
   padding:10px;
-  border-spacing: 20px black solid;
-  border-radius: 30px;
+  border-spacing: 10px black solid;
+  border: radius 10px;
   }
 
   td:hover {
     background-color: #FF6F5E;
+  }
+
+  footer {
+    font-size: large;
   }
 
