@@ -21,7 +21,7 @@ function handleClick(event){
 
   if (event.target.id === "minCookies") {
     var parentEl = document.createElement('p');
-    parentEl.textContent = "minCookies
+    parentEl.textContent = "minCookies";
   }
 
 }

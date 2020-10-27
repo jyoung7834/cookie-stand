@@ -120,7 +120,8 @@ p img :first-child {
   border-radius: 20px;
   background-color: #fa8072;
   padding-top: 30px;
-  width: 960px;
+  position: relative;
+  /* width: 960px; */
  
 }
 
@@ -152,5 +153,9 @@ table {
 
   footer {
     font-size: large;
+  }
+
+  label {
+    display: block;
   }
 

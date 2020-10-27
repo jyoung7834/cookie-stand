@@ -8,7 +8,8 @@ var hourTotalArray = [];
 var grandTotal = 0;
 var allStores = [];
 var salmonCookiesTable = document.getElementById('salmonCookiesTable');
-
+var lastTr = document.createElement('tr');
+lastTr.setAttribute('id', 'lastTr');
 
 //create object(s) - create ONE first! with the given data/properties // Get Date
 // var seattle = {
@@ -120,28 +121,31 @@ function renderHeader() {
 }
 
 function renderFooter() {
-  var tr = document.createElement('tr');
   // give row content
   // create td FOR NAME
   var td = document.createElement('td');
   // give td content
   td.textContent = 'Totals';
   // append to row
-  tr.appendChild(td);
+  lastTr.appendChild(td);
   for (var i = 0; i < hours.length; i++) {
     td = document.createElement('td');
     td.textContent = hourTotalArray[i];
-    tr.appendChild(td);
+    lastTr.appendChild(td);
   }
   td = document.createElement('td');
   td.textContent = grandTotal;
-  tr.appendChild(td);
+  lastTr.appendChild(td);
 
-  salmonCookiesTable.appendChild(tr);
+  salmonCookiesTable.appendChild(lastTr);
 }
 
 
-
+function renderAllLocations() {
+  for( var i = 0; i < allStores.length; i++) {
+    allStores[i].render();
+  }
+}
 
 var seattle = new Store('Seattle', 23, 65, 6.3);
 var tokyo = new Store('Tokyo', 3, 24, 1.2);
@@ -150,12 +154,7 @@ var Paris = new Store('Paris', 20, 38, 2.3);
 var Lima = new Store('Lima', 2, 16, 4.6);
 
 renderHeader();
-
-seattle.render();
-tokyo.render();
-Dubai.render();
-Paris.render();
-Lima.render();
+renderAllLocations();
 calcTotals();
 renderFooter();
 
@@ -163,6 +162,8 @@ renderFooter();
 
 
 function calcTotals() {
+  grandTotal = 0;
+  hourTotalArray = [];
   for (var i = 0; i < hours.length; i++) {
     var hourlyTotal = 0;
     for (var j = 0; j < allStores.length; j++) {
@@ -172,3 +173,26 @@ function calcTotals() {
     grandTotal += hourlyTotal;
   }
 }
+
+// Form javascript
+var mainForm = document.getElementById('mainform');
+
+function handleSubmit(event){
+  event.preventDefault();
+  var storelocation = event.target.storelocation.value;
+  var minCookies = parseInt(event.target.minCookies.value);
+  var maxCookies = parseInt(event.target.maxCookies.value);
+  var avgCookies = parseInt(event.target.avgCookies.value);
+
+
+  var newStore = new Store(storelocation, minCookies, maxCookies, avgCookies);
+  newStore.render();
+  lastTr.innerHTML = '';
+  calcTotals();
+  renderFooter();
+}
+
+
+
+mainForm.addEventListener('submit', handleSubmit);
+
